@@ -1,4 +1,4 @@
-{
+function Saved(){
 return (
 <Container fluid>
 <Row>
@@ -27,3 +27,5 @@ return (
 </Container>
     );
   }
+
+export default Saved;
