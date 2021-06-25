@@ -7,9 +7,16 @@ import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 
+const key = "AIzaSyDJIPOeacNPYCPEACgg0Uwupn5MaM4xSO8"
+fetch(`https://www.googleapis.com/books/v1/volumes?q=search-terms&key=${key}`)
+  .then(response => response.json())
+  .then(result => {
+this.setState({ books: result.items})
+})
+
 function Books() {
   // Setting our component's initial state
-  const [books, setBooks] = useState([])
+  const [userbooks, setUserBooks] = useState([])
   const [formObject, setFormObject] = useState({})
 
   // Load all books and store them with setBooks
