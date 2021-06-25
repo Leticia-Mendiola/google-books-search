@@ -1,7 +1,7 @@
 {
 return (
-    <Container fluid>
-      <Row>
+<Container fluid>
+<Row>
 <Col size="md-6 sm-12">
 <Jumbotron>
 <h1>Books On My List</h1>
