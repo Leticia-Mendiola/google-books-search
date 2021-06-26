@@ -7,12 +7,12 @@ import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 
-const key = "AIzaSyDJIPOeacNPYCPEACgg0Uwupn5MaM4xSO8"
-fetch(`https://www.googleapis.com/books/v1/volumes?q=search-terms&key=${key}`)
-  .then(response => response.json())
-  .then(result => {
-this.setState({ books: result.items})
-})
+// const key = "AIzaSyDJIPOeacNPYCPEACgg0Uwupn5MaM4xSO8"
+// fetch(`https://www.googleapis.com/books/v1/volumes?q=search-terms&key=${key}`)
+//   .then(response => response.json())
+//   .then(result => {
+// this.setState({ books: result.items})
+// })
 
 function Books() {
   // Setting our component's initial state
@@ -28,7 +28,7 @@ function Books() {
   function loadBooks() {
     API.getBooks()
       .then(res => 
-        setBooks(res.data)
+        setUserBooks(res.data)
       )
       .catch(err => console.log(err));
   };
@@ -96,9 +96,9 @@ function Books() {
             <Jumbotron>
               <h1>Books On My List</h1>
             </Jumbotron>
-            {books.length ? (
+            {userbooks.length ? (
               <List>
-                {books.map(book => (
+                {userbooks.map(book => (
                   <ListItem key={book._id}>
                     <Link to={"/books/" + book._id}>
                       <strong>
