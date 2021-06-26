@@ -6,26 +6,29 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
+const key = "AIzaSyDJIPOeacNPYCPEACgg0Uwupn5MaM4xSO8"
 
-// const key = "AIzaSyDJIPOeacNPYCPEACgg0Uwupn5MaM4xSO8"
-// fetch(`https://www.googleapis.com/books/v1/volumes?q=search-terms&key=${key}`)
-//   .then(response => response.json())
-//   .then(result => {
-// this.setState({ books: result.items})
-// })
+fetch(`https://www.googleapis.com/books/v1/volumes?q=search-terms&key=${key}`)
+  .then(response => response.json())
+  .then(result => {
+this.setState({ books: result.items})
+})
 
 function Books() {
   // Setting our component's initial state
+  const [books, setBooks] = useState([])
   const [userbooks, setUserBooks] = useState([])
   const [formObject, setFormObject] = useState({})
 
+  function loadBooks()
+
   // Load all books and store them with setBooks
   useEffect(() => {
-    loadBooks()
+    loadUserBooks()
   }, [])
 
   // Loads all books and sets them to books
-  function loadBooks() {
+  function loadUserBooks() {
     API.getBooks()
       .then(res => 
         setUserBooks(res.data)
