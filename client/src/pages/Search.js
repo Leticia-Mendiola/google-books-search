@@ -14,6 +14,10 @@ function Books() {
   const [userbooks, setUserBooks] = useState([])
   const [formObject, setFormObject] = useState({})
 
+  useEffect(() => {
+    loadBooks()
+  }, [])
+  
   function loadBooks() {
     fetch(`https://www.googleapis.com/books/v1/volumes?q=search-terms&key=${key}`)
     .then(response => response.json())
