@@ -20,11 +20,11 @@ function Books() {
   
   function loadBooks() {
     fetch(`https://www.googleapis.com/books/v1/volumes?q=search-terms&key=${key}`)
-    .then(response => response.json())
-    .then(result => {
-    this.setState({ books: result.items})
-    })
-  }
+    .then(res => 
+      setBooks(res.data)
+    )
+    .catch(err => console.log(err));
+  };
 
   // Load all books and store them with setBooks
   useEffect(() => {
@@ -61,7 +61,7 @@ function Books() {
       API.saveBook({
         title: formObject.title,
         author: formObject.author,
-        synopsis: formObject.synopsis
+        // synopsis: formObject.synopsis
       })
         .then(res => loadBooks())
         .catch(err => console.log(err));
@@ -86,11 +86,11 @@ function Books() {
                 name="author"
                 placeholder="Author (required)"
               />
-              <TextArea
+              {/* <TextArea
                 onChange={handleInputChange}
                 name="synopsis"
                 placeholder="Synopsis (Optional)"
-              />
+              /> */}
               <FormBtn
                 disabled={!(formObject.author && formObject.title)}
                 onClick={handleFormSubmit}
