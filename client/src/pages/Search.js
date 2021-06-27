@@ -57,7 +57,7 @@ function Books() {
   // Then reload books from the database
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (formObject.title && formObject.author) {
+    if (formObject.title || formObject.author) {
       API.saveBook({
         title: formObject.title,
         author: formObject.author,
@@ -92,7 +92,7 @@ function Books() {
                 placeholder="Synopsis (Optional)"
               /> */}
               <FormBtn
-                disabled={!(formObject.author && formObject.title)}
+                disabled={!(formObject.author || formObject.title)}
                 onClick={handleFormSubmit}
               >
                 Submit Book
