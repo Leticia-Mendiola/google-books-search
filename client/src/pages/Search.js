@@ -58,7 +58,9 @@ function Books() {
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.title || formObject.author) {
-      API.saveBook({
+      // API.saveBook
+      loadBooks
+      ({
         title: formObject.title,
         author: formObject.author,
         // synopsis: formObject.synopsis
