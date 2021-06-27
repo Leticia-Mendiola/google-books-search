@@ -1,7 +1,9 @@
 const db = require("../models");
+const key = "AIzaSyDJIPOeacNPYCPEACgg0Uwupn5MaM4xSO8"
 
 // Defining methods for the booksController
 module.exports = {
+  // Database methods
   findAll: function(req, res) {
     db.Book
       .find(req.query)
@@ -33,5 +35,15 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+
+  // Google Books API Methods
+  searchByTitle: function(req, res) {
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${req.query.q}&key=${key}`)
+    .then((result) => {
+        console.log(result.data);
+        res.json(result.data)
+    })
+    .catch((e) => res.json(e));
   }
 };
