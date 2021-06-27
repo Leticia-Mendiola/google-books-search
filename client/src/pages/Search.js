@@ -79,12 +79,12 @@ function Books() {
               <Input
                 onChange={handleInputChange}
                 name="title"
-                placeholder="Title (required)"
+                placeholder="Title"
               />
               <Input
                 onChange={handleInputChange}
                 name="author"
-                placeholder="Author (required)"
+                placeholder="Author"
               />
               {/* <TextArea
                 onChange={handleInputChange}
