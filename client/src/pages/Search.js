@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
+import { Grid } from "@material-ui/core";
+import BookCard from "../components/BookCard";
 const key = "AIzaSyDJIPOeacNPYCPEACgg0Uwupn5MaM4xSO8"
 
 function Books() {
@@ -77,7 +79,37 @@ function Books() {
             <Jumbotron>
               <h1>What Books Should I Read?</h1>
             </Jumbotron>
-            <form>
+            <Grid 
+                container 
+                alignItem="center"
+                justify="center"
+                // className={classes.form}
+                >
+                    <Grid item xs={6}>
+                        <SearchForm setBooks={setBooks} />
+                    </Grid>
+                </Grid>
+                <Grid
+                    container
+                    direction="column"
+                    justify="flex-start"
+                    alignItems="flex-start"
+                >
+                    {/* map over results render BookCards */}
+                    {books.map(book => {
+                        return (
+                            <Grid item 
+                            // className={classes.card}
+                            >
+                                <BookCard
+                                    googleBooksId={book.id}
+                                    volumeInfo={book.volumeInfo} 
+                                />
+                            </Grid>
+                        )
+                    })}
+                </Grid>
+            {/* <form>
               <Input
                 onChange={handleInputChange}
                 name="title"
@@ -88,18 +120,18 @@ function Books() {
                 name="author"
                 placeholder="Author"
               />
-              {/* <TextArea
+              <TextArea
                 onChange={handleInputChange}
                 name="synopsis"
                 placeholder="Synopsis (Optional)"
-              /> */}
+              />
               <FormBtn
                 disabled={!(formObject.author || formObject.title)}
                 onClick={handleFormSubmit}
               >
                 Search
               </FormBtn>
-            </form>
+            </form> */}
           </Col>
           <Col size="md-6 sm-12">
             <Jumbotron>
