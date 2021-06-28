@@ -9,7 +9,6 @@ import { Input, TextArea, FormBtn } from "../components/Form";
 import { Grid } from "@material-ui/core";
 import CardComp from "../components/CardComp";
 import SearchForm from "../components/SearchForm";
-const key = "AIzaSyDJIPOeacNPYCPEACgg0Uwupn5MaM4xSO8"
 
 function Books() {
   // Setting our component's initial state
