@@ -15,15 +15,15 @@ function App() {
           <Route exact path={["/", "/books"]}>
             <Search />
           </Route>
-          <Route exact path="/books/:id">
+          {/* <Route exact path="/books/:id">
             <Detail />
           </Route>
-          {/* <Route exact path="/saved">
+          <Route exact path="/saved">
             <Saved />
-          </Route> */}
+          </Route>
           <Route>
             <NoMatch />
-          </Route>
+          </Route> */}
         </Switch>
       </div>
     </Router>
