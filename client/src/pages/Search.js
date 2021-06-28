@@ -7,7 +7,8 @@ import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 import { Grid } from "@material-ui/core";
-import BookCard from "../components/BookCard";
+import Card from "../components/Card";
+import SearchForm from "../components/SearchForm";
 const key = "AIzaSyDJIPOeacNPYCPEACgg0Uwupn5MaM4xSO8"
 
 function Books() {
@@ -101,7 +102,7 @@ function Books() {
                             <Grid item 
                             // className={classes.card}
                             >
-                                <BookCard
+                                <Card
                                     googleBooksId={book.id}
                                     volumeInfo={book.volumeInfo} 
                                 />
