@@ -10,7 +10,7 @@ import { Grid } from "@material-ui/core";
 import CardComp from "../components/CardComp";
 import SearchForm from "../components/SearchForm";
 
-function Books() {
+function Search() {
   // Setting our component's initial state
   const [books, setBooks] = useState([])
   const [userbooks, setUserBooks] = useState([])
@@ -160,4 +160,4 @@ function Books() {
   }
 
 
-export default Books;
+export default Search;
