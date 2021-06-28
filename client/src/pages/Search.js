@@ -7,7 +7,7 @@ import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 import { Grid } from "@material-ui/core";
-import Card from "../components/Card";
+import CardComp from "../components/CardComp";
 import SearchForm from "../components/SearchForm";
 const key = "AIzaSyDJIPOeacNPYCPEACgg0Uwupn5MaM4xSO8"
 
@@ -17,17 +17,17 @@ function Books() {
   const [userbooks, setUserBooks] = useState([])
   const [formObject, setFormObject] = useState({})
 
-  useEffect(() => {
-    loadBooks()
-  }, [])
+  // useEffect(() => {
+  //   loadBooks()
+  // }, [])
   
-  function loadBooks() {
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=search-terms&key=${key}`)
-    .then(res => 
-      setBooks(res.data)
-    )
-    .catch(err => console.log(err));
-  };
+  // function loadBooks() {
+  //   fetch(`https://www.googleapis.com/books/v1/volumes?q=search-terms&key=${key}`)
+  //   .then(res => 
+  //     setBooks(res.data)
+  //   )
+  //   .catch(err => console.log(err));
+  // };
 
   // Load all books and store them with setBooks
   useEffect(() => {
@@ -44,11 +44,11 @@ function Books() {
   };
 
   // Deletes a book from the database with a given id, then reloads books from the db
-  function deleteBook(id) {
-    API.deleteBook(id)
-      .then(res => loadBooks())
-      .catch(err => console.log(err));
-  }
+  // function deleteBook(id) {
+  //   API.deleteBook(id)
+  //     .then(res => loadBooks())
+  //     .catch(err => console.log(err));
+  // }
 
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
@@ -58,20 +58,20 @@ function Books() {
 
   // When the form is submitted, use the API.saveBook method to save the book data
   // Then reload books from the database
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    if (formObject.title || formObject.author) {
-      // API.saveBook
-      loadBooks
-      ({
-        title: formObject.title,
-        author: formObject.author,
-        // synopsis: formObject.synopsis
-      })
-        .then(res => loadBooks())
-        .catch(err => console.log(err));
-    }
-  };
+  // function handleFormSubmit(event) {
+  //   event.preventDefault();
+  //   if (formObject.title || formObject.author) {
+  //     // API.saveBook
+  //     loadBooks
+  //     ({
+  //       title: formObject.title,
+  //       author: formObject.author,
+  //       // synopsis: formObject.synopsis
+  //     })
+  //       .then(res => loadBooks())
+  //       .catch(err => console.log(err));
+  //   }
+  // };
 
     return (
       <Container fluid>
@@ -102,7 +102,7 @@ function Books() {
                             <Grid item 
                             // className={classes.card}
                             >
-                                <Card
+                                <CardComp
                                     googleBooksId={book.id}
                                     volumeInfo={book.volumeInfo} 
                                 />
@@ -147,7 +147,7 @@ function Books() {
                         {book.title} by {book.author}
                       </strong>
                     </Link>
-                    <DeleteBtn onClick={() => deleteBook(book._id)} />
+                    {/* <DeleteBtn onClick={() => deleteBook(book._id)} /> */}
                   </ListItem>
                 ))}
               </List>

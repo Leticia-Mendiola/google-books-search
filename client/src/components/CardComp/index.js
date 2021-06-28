@@ -20,7 +20,7 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-function Card({ googleBooksId, volumeInfo }) {
+function CardComp({ googleBooksId, volumeInfo }) {
     const classes = useStyles();
 
     return (
@@ -49,4 +49,4 @@ function Card({ googleBooksId, volumeInfo }) {
     )
 };
 
-export default Card;
+export default CardComp;

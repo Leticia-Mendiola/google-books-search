@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-function SearchForm({ setResultsState }) {
+function SearchForm({ setBooks }) {
   const searchInput = useRef();
   // const { handleResultsState } = useContext(SearchContext);
   const handleOnSubmit = (evt) => {
@@ -22,7 +22,7 @@ function SearchForm({ setResultsState }) {
     .then(data => {
       console.log(data)
       // handleResultsState(data.items)
-      setResultsState(data.items)
+      setBooks(data.items)
     })
     .catch(e => console.log(e));
   };
